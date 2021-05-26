@@ -48,8 +48,7 @@ To do so, first of all we will need to split the data into the different directo
 Next, we will create the corresponding masks for the data, using the **Create_Masks_For_Data.py** script.
 
 A 3 band image and its corresponding mask look like:
-(Add image)
-
+![image](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/Image%20and%20its%20true%20mask.png)
 
 ## Step 3 - Creating a model:
 Since the dataset includes around 7000 3-band images of size (406,438,3) and their corresponding 8-band images of size (101,110,8),
