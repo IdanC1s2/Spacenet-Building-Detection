@@ -1,8 +1,7 @@
 # Spacenet-Building-Detection
 
 ## Step 1 - Download data:
-'SpaceNet 1: Building Detection v1' Dataset from
-
+'SpaceNet 1: Building Detection v1' Dataset from\
 AWS, using AWS CLI as explained in the following [link](https://spacenet.ai/spacenet-buildings-dataset-v1/).
 
 
@@ -36,16 +35,16 @@ Project Database:
     - img
   - vector
 
-Where each of the Training, Validation and Test data groups will hold the 3 band images, 8 band images, and corresponding masks, seperate from each other.
+Where each of the Training, Validation and Test data groups will hold the 3 band images,\
+8 band images, and corresponding masks, seperate from each other.
 
-The vector directories are holding .geogjson files that are used to create the corresponding mask for each 3 band image and its 8 band counterpart, and
-we will not use the vectors directly for training the model.
-
+The vector directories are holding .geojson files that are used to create the corresponding mask for each\
+3 band image and its 8 band counterpart, and we will not use the vectors directly for training the model.\
 The lower 'img' directories will hold the images, and are needed for the data iterators.
 
-To do so, first of all we will need to split the data into the different directories - using the **Split_Data.py** script.
-
+To do so, first of all we will need to split the data into the different directories - using the **Split_Data.py** script.\
 Next, we will create the corresponding masks for the data, using the **Create_Masks_For_Data.py** script.
+
 
 A 3 band image and its corresponding mask look like:
 ![image](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/Image%20and%20its%20true%20mask.png)
@@ -64,11 +63,29 @@ To overcome this problem, we use the first few epochs to train the model on a **
 ![image](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/Masks_5_Epoch.png)
 
 Right after getting the model past the local minimum, we switch the loss function to **mean IOU loss**, which is what we are after maximizing.
-We can see that after we start training with the new loss function, predicted masks are now much more "decisive", predicting values either close to 1 or 0, and giving much 'edgier' predictions. (As we wish they were)
-(Add image of iou mask)
+We can see that after we start training with the new loss function, predicted masks are now much more "decisive", predicting values either close to 1 or 0, and giving much 'edgier' predictions. (As will be shown)
+
+To evaluate our model we have 2 metrics - 'mean_iou' which measures the similarity between the true mask with the predicted mask,\
+and 'mean_iou_hard' which measures the similarity between the true mask with the hard predicted mask.\
+(values above 0.5 are set to 1, and below 0.5 are set to 0)\
+Actually, the negative of the 'mean_iou_hard' should have benn our loss function, and minimizing it would maximize the mean IOU value\
+of a true mask and its hard predicted mask, but 'mean_iou_hard' is not differentiable, so we had to use the soft version as our loss function.
+
+For the example shown above, the model of 5 epochs of BinaryCrossEntropy loss showed nice results:\
+iou_val_soft: 0.3833\
+iou_val_hard: 0.4259\
+
 
 
 ## Results
-Show history of training
+After 80 epochs of training the 8 band model, the model converged to iou value of around 0.55\
 
+![history]()
+
+If we look at the example showed above, our model gives much better predictions now:
+
+![image](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/Masks_80_Epochs.png)
+Together with IOU values of:\
+iou_val_soft: 0.6717\
+iou_val_hard: 0.6736\
 
