@@ -73,19 +73,20 @@ of a true mask and its hard predicted mask, but 'mean_iou_hard' is not different
 
 For the example shown above, the model of 5 epochs of BinaryCrossEntropy loss showed nice results:\
 iou_val_soft: 0.3833\
-iou_val_hard: 0.4259\
+iou_val_hard: 0.4259
 
 
 
 ## Results
-After 80 epochs of training the 8 band model, the model converged to iou value of around 0.55\
+After 80 epochs of training the 8 band model, the model training set converged to iou value of around 0.55,\
+and the validation training set converged to around 0.53.
 
-![history]()
+![history](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/history80epochs.png)
 
 If we look at the example showed above, our model gives much better predictions now:
 
 ![image](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/Masks_80_Epochs.png)
 Together with IOU values of:\
 iou_val_soft: 0.6717\
-iou_val_hard: 0.6736\
+iou_val_hard: 0.6736
 
