@@ -89,12 +89,3 @@ if __name__ == '__main__':
     dst_dir_test = 'E:/Spacenet Database/Project Database/Test Data/mask/img'
     Create_Masks_For_Dataset(raster_Src_dir=rasterSrc_dir_test, vector_Src_dir=vectorSrc_dir_test,
                              dst_dir=dst_dir_test)
-
-
-    # raster_Src_dir = 'E:/Spacenet Database/Train/3band'
-    # vector_Src_dir = 'E:/Spacenet Database/Train/geojson'
-    # dst_dir = 'E:/Spacenet Database/Train/poly_masks'
-    #
-    # Create_Masks_For_Dataset(raster_Src_dir=raster_Src_dir,
-    #                          vector_Src_dir=vector_Src_dir,
-    #                          dst_dir=dst_dir)
