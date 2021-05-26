@@ -14,5 +14,3 @@ def overlay_mask(image, mask, alpha=0.5, rgb=[255, 255, 0]):
 def show_mask(mask):
     plt.figure()
     plt.imshow(mask, cmap='viridis')
-
-
