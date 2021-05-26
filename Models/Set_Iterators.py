@@ -4,7 +4,6 @@ import numpy as np
 from tensorflow.keras.preprocessing.image import load_img
 import os
 from natsort.natsort import natsorted
-from Mean_IoU import calculate_mean_iou_of_mask
 from tensorflow.keras.utils import normalize
 from osgeo import gdal
 from PIL import Image
@@ -145,46 +144,6 @@ class Data_Iterator_8Band(Sequence):
         self.aug_seeds = np.random.randint(1, 10000, self.batch_size)
         return x, y
 
-
-
-# class Data_Iterator_Augmentation(Sequence):
-#     """Helper to iterate over the data (as Numpy arrays)."""
-#
-#     def __init__(self, batch_size, img_size, input_img_dir, mask_img_dir, seed):
-#         self.batch_size = batch_size
-#         self.img_size = img_size
-#         self.input_img_paths = Image_Dir_Into_List_Of_Paths(input_img_dir)
-#         self.target_img_paths = Image_Dir_Into_List_Of_Paths(mask_img_dir)
-#         self.augment = augment
-#
-#         self.generator = ImageDataGenerator(width_shift_range=0.1, height_shift_range=0.1,
-#                                                 rotation_range=5, dtype='uint8')
-#         self.mask_augmentor = self.generator.flow()
-#     def __len__(self):
-#         return len(self.target_img_paths) // self.batch_size
-#
-#     def __getitem__(self, idx):
-#         """Returns tuple (input, target) correspond to batch #idx."""
-#         i = idx * self.batch_size
-#         batch_input_img_paths = self.input_img_paths[i: i + self.batch_size]
-#         batch_target_img_paths = self.target_img_paths[i: i + self.batch_size]
-#
-#         # Create input batch with self.batch_size images:
-#         x = np.zeros((self.batch_size,) + self.img_size + (3,), dtype='uint8')
-#         for j, path in enumerate(batch_input_img_paths):
-#             img = load_img(path, target_size=self.img_size)
-#             x[j] = img
-#
-#         # Create mask (target) batch with self.batch_size images:
-#         y = np.zeros((self.batch_size,) + self.img_size + (1,), dtype='uint8')
-#         for j, path in enumerate(batch_target_img_paths):
-#             img = load_img(path, target_size=self.img_size, color_mode='grayscale')
-#             y[j] = np.expand_dims(img, 2)
-#             # # Ground truth labels are 1, 2, 3. Subtract one to make them 0, 1, 2:
-#             # y[j] -= 1
-#             # make it into categorical mask of 0's and 1's:
-#             y[j] = y[j] / 255
-#         return x, y
 
 def Image_Dir_Into_List_Of_Paths(dir):
     src_list = natsorted(os.listdir(dir))
