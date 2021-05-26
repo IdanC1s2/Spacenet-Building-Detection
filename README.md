@@ -61,7 +61,7 @@ Since the **mean IOU loss** function is not necessarily convex, we find that mos
 where the model predicts every mask to be entirely black. 
 
 To overcome this problem, we use the first few epochs to train the model on a **BinaryCrossEntropy loss** function which is convex guarantees converging towards a global minimum. We end up getting a weak model that doesn't predict black masks, but can capture some of the image's characteristics:
-![image](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/Masks_5_Epochs.png)
+![image](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/Masks_5_Epoch.png)
 
 Right after getting the model past the local minimum, we switch the loss function to **mean IOU loss**, which is what we are after maximizing.
 We can see that after we start training with the new loss function, predicted masks are now much more "decisive", predicting values either close to 1 or 0, and giving much 'edgier' predictions. (As we wish they were)
