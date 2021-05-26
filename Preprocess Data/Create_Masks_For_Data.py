@@ -50,7 +50,6 @@ def create_poly_mask(rasterSrc, vectorSrc, npDistFileName='',
 
     return mask_image
 
-print('checkpoint')
 
 def Create_Masks_For_Dataset(raster_Src_dir, vector_Src_dir, dst_dir):
 
