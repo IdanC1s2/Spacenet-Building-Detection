@@ -1,4 +1,9 @@
 # Spacenet-Building-Detection
+## Dependencies:
+Osgeo.Gdal\
+PIL\
+OpenCV\
+Tensorflow.Keras\
 
 ## Step 1 - Download data:
 'SpaceNet 1: Building Detection v1' Dataset from\
