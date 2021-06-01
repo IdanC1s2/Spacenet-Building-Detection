@@ -54,6 +54,12 @@ Since the dataset includes around 7000 3-band images of size (406,438,3) and the
 I've created 2 U-NET segmentation models, and trained both of them.
 
 The models are created at script **UNET_Model.py**.
+
+Our UNET architecture for the 8 bands data will be as follows:
+![image](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/UNET%20Architecture%208B.jpg)
+
+We might as well ad some dropout layers in-between some of the layers.
+
 In addition, we will be using a custom loss function of mean IOU to evaluate our model.
 
 Since the **mean IOU loss** function is not necessarily convex, we find that most of the times the first few epochs of the model tend to get stuck in a local minimum,
