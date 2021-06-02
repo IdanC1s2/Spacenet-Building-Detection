@@ -48,7 +48,9 @@ The vector directories are holding .geojson files that are used to create the co
 The lower 'img' directories will hold the images, and are needed for the data iterators.
 
 To do so, first of all we will need to split the data into the different directories - using the **Split_Data.py** script.\
-Next, we will create the corresponding masks for the data, using the **Create_Masks_For_Data.py** script.
+Next, we will create the corresponding masks for the data.\
+The labeled masks are given in geotiff format - meaning that each mask is basically a polygon whose vertices\
+are given by geographic coordinates. To transform these polygons into masked images, we will be using the **Create_Masks_For_Data.py** script.
 
 
 A 3 band image and its corresponding mask look like:
