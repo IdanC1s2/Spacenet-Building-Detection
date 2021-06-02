@@ -140,7 +140,7 @@ def UNET_Model_8B(img_height=128, img_width=128, img_channels=3):
     c8 = Dropout(0.1)(c8)
     c8 = Conv2D(64, (3, 3), padding='same', activation='relu', kernel_initializer='he_normal')(c8)
 
-    u9 = Conv2DTranspose(16, (2, 2), strides=(2, 2), padding='same')(c8)
+    u9 = Conv2DTranspose(32, (2, 2), strides=(2, 2), padding='same')(c8)
     u9 = concatenate([u9, c1], axis=3)
     c9 = Conv2D(32, (3, 3), padding='same', activation='relu', kernel_initializer='he_normal')(u9)
     c9 = Dropout(0.1)(c9)
