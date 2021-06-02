@@ -98,8 +98,8 @@ and the validation training set converged to around 0.53.
 
 If we look at the example showed above, our model gives much better predictions now:
 
-![image](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/Masks_80_Epochs.png)
+![image](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/Masks_125_Epochs.png)
 Together with IOU values of:\
-iou_val_soft: 0.6717\
-iou_val_hard: 0.6736
+iou_val_soft: 0.6658\
+iou_val_hard: 0.6681
 
