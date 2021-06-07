@@ -65,7 +65,7 @@ The models are created at script **UNET_Model.py**.
 Our UNET architecture for the 8 bands data will be as follows:
 ![image](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/UNET%20Architecture%208B.jpg)
 
-We might as well ad some dropout layers in-between some of the layers.
+We might as well add some dropout layers in-between some of the layers.
 
 In addition, we will be using a custom loss function of mean IOU to evaluate our model.
 
