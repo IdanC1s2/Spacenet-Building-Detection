@@ -12,7 +12,7 @@ AWS, using AWS CLI as explained in the following [link](https://spacenet.ai/spac
 
 
 ## Step 2 - Preprocess the data:
-In the end, we would like our preprocessed data to be stored as follows: 
+We would like our preprocessed data to be stored as follows: 
 
 Project Database:
 - Training Data
