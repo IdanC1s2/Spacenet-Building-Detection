@@ -72,7 +72,7 @@ In addition, we will be using a custom loss function of mean IOU to evaluate our
 Since the **mean IOU loss** function is not necessarily convex, we find that most of the times the first few epochs of the model tend to get stuck in a local minimum,
 where the model predicts every mask to be entirely black. 
 
-To overcome this problem, we use the first few epochs to train the model on a **BinaryCrossEntropy loss** function which is convex guarantees converging towards a global minimum. We end up getting a weak model that doesn't predict black masks, but can capture some of the image's characteristics:
+To overcome this problem, we use the first few epochs to train the model on a **BinaryCrossEntropy loss** function which is convex and guarantees converging towards a global minimum. We end up getting a weak model that doesn't predict black masks, but can capture some of the image's characteristics:
 ![image](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/Masks_5_Epoch.png)
 
 Right after getting the model past the local minimum, we switch the loss function to **mean IOU loss**, which is what we are after maximizing.
