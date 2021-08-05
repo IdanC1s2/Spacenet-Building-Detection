@@ -91,7 +91,7 @@ iou_val_hard: 0.4259
 
 
 ## Results
-After 80 epochs of training the 8 band model, the model training set converged to iou value of around 0.55,\
+After 125 epochs of training the 8 band model, the model training set converged to iou value of around 0.55,\
 and the validation training set converged to around 0.53.
 
 ![history](https://github.com/IdanC1s2/Spacenet-Building-Detection/blob/main/Images/training%20curve%20-%20125%20epochs.png)
